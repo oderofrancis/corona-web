@@ -1,0 +1,5 @@
+django==2.2
+gunicorn
+whitenoise
+django-heroku
+pandas

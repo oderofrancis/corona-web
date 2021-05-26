@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+
+
+<head>
+	<title>{% block title %}{% endblock title %} | updates</title>
+</head>
+
+	{% block style %}
+
+	{% endblock style %}
+
+<!-- Favicon icon -->
+<link rel="icon" href="/static/image/covid.png" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Chart/Chart.min.css' %}">
+
+<script src="{% static 'jquery/jquery.min.js' %}"></script>
+
+<script src="{% static 'chart/Chart.min.js' %}"></script>
+
+
+<body>
+
+	<!-- header -->
+
+	{% block header %}
+
+	{% endblock header %}
+
+	<!-- content -->
+
+	{% block content %}
+
+	{% endblock content %}
+
+	<!-- chart -->
+
+	{% block chart %}
+
+	{% endblock chart %}
+
+
+	<!-- footer -->
+
+	{% block footer %}
+
+	{% endblock footer %}
+
+
+	
+
+</body>
+<!-- scripts -->
+
+{% block scripts %}
+
+<script src="{% static 'jquery/jquery.js' %}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+{% endblock scripts %}
+
+
+
+</html>

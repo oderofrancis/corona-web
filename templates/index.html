@@ -1,0 +1,376 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!-- title -->
+
+{% block title %}
+World
+{% endblock title %}
+
+<!-- style css -->
+
+{% block style %}
+
+{% include 'css/index.css' %}
+
+{% endblock style %}
+
+<!-- body -->
+
+{% block content %}
+
+<h2 style="text-transform: uppercase; font-size: 30px; color: lightgrey;">world corona update</h2>
+
+<hr>
+
+<!-- links -->
+
+		<!-- l1 -->
+
+	<div class="link1">
+		<button><a href="{% url 'home' %}">World</a></button>
+	</div>
+
+		<!-- l2 -->
+	<div class="link2">
+		<button><a href="{% url 'africa' %}">Africa</a></button>
+	</div>
+
+		<!-- l3 -->
+	<div class="link3">
+		<button><a href="{% url 'asia' %}">Asia</a></button>
+	</div>
+
+		<!-- l4 -->
+	<div class="link4">
+		<button ><a href="{% url 'europe' %}">europe</a></button>
+	</div>
+
+			<!-- l5 -->
+	<div class="link5">
+		<button><a href="{% url 'south_america' %}">south a</a></button>
+	</div>
+
+		<!-- l6 -->
+	<div class="link6">
+		<button><a href="{% url 'north_america' %}">north a</a></button>
+	</div> 
+
+		<!-- l7 -->
+	<div class="link7">
+		<button><a href="{% url 'oceania' %}">oceania</a></button>
+	</div>
+
+
+<hr>
+
+<div class="recovery">
+	<h2 style="text-transform: uppercase;color: lightgrey;text-align: center;">Recovered : <b style="color:#ffffff;">{{totalrecovered}}</b></h2>
+</div>
+
+<div class="confirmed">
+  <h1 style="text-transform: uppercase;color: lightgrey;text-align: center;">Confirmed : <b style="color:#ffffff;">{{totalconfirmed}}</b></h1>
+</div>
+
+<div class="death">
+	<h2 style="text-transform: uppercase;color: lightgrey;text-align: center;">Death : <b style="color:#ffffff;">{{totaldeath}}</b></h2>
+</div>
+
+<hr style="height: 5px;width: 100%; background-color:lightgrey;">
+
+<!-- confirmed -->
+
+<div class="chart">
+  <div class="conf" style="float: left;  max-height: 550px;max-width:30%px;overflow: scroll; overflow-x:hidden;">
+
+		<!-- text area -->
+
+		<div>
+
+        <span style=" text-align: center;color: #ffffff;font-size: 20px;"><h4>Confirmed Cases in {{alldata}} countries.</h4></span>
+
+        <p style=" text-align: center;color: #ffffff;font-size: 18px;"> Mean : <b style="color: #33ff33;">{{total_mean}}</b> </p>
+
+    	</div>
+
+    	<!-- the chart -->
+
+    	<div  style="width: 100%;">
+
+    		<canvas id="myChart" style="height: 7500px; width: 150%;"></canvas>
+
+    	</div>
+		
+	</div>
+</div>
+
+<!-- recovery chart -->
+
+<div class="data">
+	<div class="conf" style="float: left;  max-height: 550px;max-width:30%px;overflow: scroll; overflow-x:hidden;" >
+
+				<!-- text area -->
+
+				<div>
+
+        			<span style=" text-align: center;color: #ffffff;font-size: 20px;"><h4>Recovery cases in {{allrecovered}} countries.</h4></span>
+
+        			<p style=" text-align: center;color: #ffffff;font-size: 18px;"> Mean : <b style="color: #33ff33;">{{total_mean_recovered}}</b></p>
+
+    			</div>
+
+    			<!-- the chart -->
+
+    			<div  style="width: 100%;">
+
+    				<canvas id="recovered" style="height: 7500px; width: 150%;"></canvas>
+
+    			</div>
+				
+			</div>
+ 
+</div>
+
+<!-- death chart -->
+
+<div class="data2">
+
+  <div class="conf" style="float: left;  max-height: 550px;max-width:30%px;overflow: scroll; overflow-x:hidden;" >
+
+				<!-- text area -->
+
+				<div>
+
+        			<span style=" text-align: center;color: #ffffff;font-size: 20px;"><h4>Death cases in {{alldeath}} countries.</h4></span>
+
+        			<p style=" text-align: center;color: #ffffff;font-size: 18px;"> Mean : <b style="color: #33ff33;">{{total_mean_death}} </b></p>
+
+    			</div>
+
+    			<!-- the chart -->
+
+    			<div  style="width: 100%;">
+
+    				<canvas id="death" style="height: 7500px; width: 150%;"></canvas>
+
+    			</div>
+				
+			</div>
+</div>
+
+<div class="cont">
+
+  <div class="conf">
+
+				<p style="font-size: 20px;text-align: center;color:  #ffffff;">Recovery Rate : <b>{{recovery_rate}}%</b></p>
+				<p style="font-size: 20px;text-align: center;color:  #ffffff;">Spread Rate: <b>{{spread_rate}}%</b></p>
+				<p style="font-size: 20px;text-align: center;color:  #ffffff;">Death rate : <b>{{death_rate}}%</b></p>
+
+				<hr>
+				<p style="text-align: center;font-size: 17px;color:  #ffffff;font-family: Purisa;">WEAR MASK</p>
+
+				<p style="text-align: center;font-size: 17px;color:  #ffffff;font-family: Purisa;">KEEP SOCIAL DISTANCES</p>
+
+				<p style="text-align: center;font-size: 17px;color:  #ffffff;font-family: Purisa;">SANITIZE YOUR HANDS</p>
+
+				<p style="text-align: center;font-size: 17px;color:  #ffffff;font-family: Purisa;">TUKOMESHE CORONA</p>
+
+				<p style="text-align: center;font-size: 20px;color:  #ffffff;font-family: Purisa;">YES WE CAN!</p>
+
+				<hr>
+
+				<p><h2 style="text-align: center;font-size: 20px;color: #ffffff;font-family: Purisa;">PAMOJA</h2></p>
+
+				<p><h2 style="text-align: center;font-size: 20px;color:  #ffffff;font-family: Purisa;">TUANGAMIZE CORONA</h2></p>
+				
+			</div>
+</div>
+
+
+<div class="footer">
+
+	<hr>
+
+	<h4 style="text-align: center;color: lightgrey;"> Disclaimer : The data is obtained from COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University <a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data" style="color: #ff6666;text-transform: lowercase;">here</a></h4>
+	
+    <hr>
+<h4 style="text-align: center;color: lightgrey;">Created by Francis Odero (GIS Web Developer)</h4>
+<p style="text-align: center;color: lightgrey;">francisodero10@gmail.com copyright &copy; 2021.All rights reserved</p>
+<h4 style="text-align: center;color: lightgrey;">Contact : 0791061506 </h4>
+  </div>
+
+
+{% endblock content %}
+
+
+
+<!-- scripts -->
+
+{% block chart %}
+
+<script>
+
+	// confirmed chart
+
+   var ctx = document.getElementById('myChart').getContext('2d');
+
+        // chart declaration
+
+        // removal of chart legend
+
+         Chart.defaults.global.legend.display = false;
+
+	var chart = new Chart(ctx, {
+	    // The type of chart we want to create
+	    type: 'horizontalBar',
+
+	     data: {
+	        labels: {{ data_confirmed_names | safe }},
+	        datasets: [{
+	            label : 'Affected Population',
+	            backgroundColor: '#80b3ff',
+	            borderColor: '#80b3ff',
+	            barThickness:'flex',
+	            data:{{ data_confirmed_values | safe}}
+	        }]
+	    },
+
+	    // Configuration options go here
+	    options:  {
+	             scales: {
+	                yAxes: [{
+	                    ticks: {
+	                        fontColor: '#ffffff',
+	                        fontSize: 15,
+	                        stepSize: 1,
+	                        beginAtZero: true,
+	                        display:true,
+	                        
+
+	                    }
+	                }],
+	                xAxes :[{
+	                	display:false,
+	                }]
+	                
+	            }
+
+	    }
+	});
+
+
+
+    	
+    </script>
+
+    <script>
+
+    	// recovery chart
+
+	var ctx = document.getElementById('recovered').getContext('2d');
+
+	        // chart declaration
+
+	        // removal of chart legend
+
+	         Chart.defaults.global.legend.display = false;
+
+	var chart = new Chart(ctx, {
+	    // The type of chart we want to create
+	    type: 'horizontalBar',
+
+	     data: {
+	        labels: {{ data_recovered_names | safe }},
+	        datasets: [{
+	            label : 'Recovered cases',
+	            backgroundColor: '#66ff99',
+	            borderColor: '#66ff99',
+	            barThickness:'flex',
+	            data:{{ data_recovered_values | safe}}
+	        }]
+	    },
+
+	    // Configuration options go here
+	    options:  {
+	             scales: {
+	                yAxes: [{
+	                    ticks: {
+	                        fontColor: '#ffffff',
+	                        fontSize: 15,
+	                        stepSize: 1,
+	                        beginAtZero: true,
+	                        display:true,
+	                        
+
+	                    }
+	                }],
+	                xAxes :[{
+	                	display:false,
+	                }]
+	                
+	            }
+
+	    }
+	});
+
+ 	
+    </script>
+
+
+    <script>
+
+    	// death chart
+
+	var ctx = document.getElementById('death').getContext('2d');
+
+	        // chart declaration
+
+	        // removal of chart legend
+
+	         Chart.defaults.global.legend.display = false;
+
+	var chart = new Chart(ctx, {
+	    // The type of chart we want to create
+	    type: 'horizontalBar',
+
+	     data: {
+	        labels: {{ data_death_names | safe }},
+	        datasets: [{
+	            label : 'Death cases',
+	            backgroundColor: '#ff6666',
+	            borderColor: '#ff6666',
+	            barThickness:'flex',
+	            data:{{ data_death_values | safe}}
+	        }]
+	    },
+
+	    // Configuration options go here
+	    options:  {
+	             scales: {
+	                yAxes: [{
+	                    ticks: {
+	                        fontColor: '#ffffff',
+	                        fontSize: 15,
+	                        stepSize: 1,
+	                        beginAtZero: true,
+	                        display:true,
+	                        
+
+	                    }
+	                }],
+	                xAxes :[{
+	                	display:false,
+	                }]
+	                
+	            }
+
+	    }
+	});
+
+ 	
+    </script>
+
+
+{% endblock chart %}
+
